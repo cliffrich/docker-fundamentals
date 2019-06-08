@@ -1,0 +1,9 @@
+version: "3.7"
+
+services:
+  db:
+    image: my_postgres:9.6
+    environment:
+      POSTGRES_USER: gordonuser
+      POSTGRES_DB: ddev
+    container_name: postgres
