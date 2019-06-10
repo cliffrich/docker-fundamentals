@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  db:
+    image: postgres:9.6
+    restart: always
+    env_file:
+      - fundamentals-final/database/pg_hba.conf
+      - fundamentals-final/database/postgresql.conf
+    environment:
+      POSTGRES_USER: gordonuser
+      POSTGRES_DB: ddev
+    volumes:
+       - "./fundamentals-final/database:/docker-entrypoint-initdb.d/"
+    container_name: postgres_cliff
