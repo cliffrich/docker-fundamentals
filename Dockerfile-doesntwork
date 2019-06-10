@@ -1,0 +1,9 @@
+FROM postgres:9.6
+#WORKDIR /usr/bin/
+ENV POSTGRES_USER gordonuser
+ENV POSTGRES_DB ddev
+COPY ./fundamentals-final/database/init-db.sql /docker-entrypoint-initdb.d/
+COPY ./fundamentals-final/database/postgresql.conf /usr/share/postgresql/9.6/
+COPY ./fundamentals-final/database/pg_hba.conf /usr/share/postgresql/9.6/
+CMD ["postgres", "-c", "config_file=/usr/share/postgresql/9.6/postgresql.conf"]
+CMD ["postgres", "-c", "config_file=/usr/share/postgresql/9.6/pg_bha.conf"]
