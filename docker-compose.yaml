@@ -13,3 +13,4 @@ services:
     volumes:
        - "./fundamentals-final/database:/docker-entrypoint-initdb.d/"
     container_name: postgres_cliff
+    
