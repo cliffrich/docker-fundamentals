@@ -13,4 +13,12 @@ services:
     volumes:
        - "./fundamentals-final/database:/docker-entrypoint-initdb.d/"
     container_name: postgres_cliff
-    
+  api:
+    build: .
+    ports:
+      - 8080:8080
+    volumes:
+      - "/tmp:/tmp"
+    container_name: api
+    depends_on:
+      - db  
