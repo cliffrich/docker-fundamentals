@@ -1,2 +1,5 @@
 1. Type 'docker-compose up -d'
 2. type 'docker exec -it XXX psql -U gordonuser -d ddev'
+3. Use the following command to install maven
+apk add maven
+4.
