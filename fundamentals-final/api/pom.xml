@@ -90,6 +90,7 @@
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
           <excludeDevtools>true</excludeDevtools>
+	  <finalName>ddev-api</finalName>
         </configuration>
       </plugin>
     </plugins>
