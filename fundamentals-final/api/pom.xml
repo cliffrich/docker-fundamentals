@@ -93,6 +93,44 @@
 	  <finalName>ddev-api</finalName>
         </configuration>
       </plugin>
+      <plugin>
+	<groupId>io.fabric8</groupId>
+	<artifactId>docker-maven-plugin</artifactId>
+	<version>0.26.0</version>
+	<executions>
+		<execution>
+			<id>start</id>
+			<phase>pre-integration-test</phase>
+			<goals>
+				<goal>build</goal>
+				<goal>start</goal>
+			</goals>
+		</execution>
+		<execution>
+			<id>stop</id>
+			<phase>post-integration-test</phase>
+			<goals>
+				<goal>stop</goal>
+			</goals>
+		</execution>
+	</executions>
+	<configuration>
+	<images>
+		<image> 
+			<name>cliffra.io/cliffra/docker-maven-comparison</name> 
+			<build>
+				<dockerFile>${project.basedir}/Dockerfile</dockerFile >
+				</build> 
+				<run>
+					<!-- Assign dynamically mapped ports to maven variables (which can be reused in integration tests) -->
+					<ports>
+						<port>8080:8080</port>
+					</ports>						
+				</run>
+			</image>
+		</images>
+	</configuration>
+	</plugin>
     </plugins>
   </build>   
 </project>
